@@ -35,12 +35,22 @@ export const TaskProvider = (props) => {
 
     }
     
-    const deleteTask = taskId => {
+    const patchTask = taskId => {
+
         return fetch(`http://localhost:8088/tasks/${taskId}`, {
-            method: "DELETE"
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({isCompleted: true})
         })
-            .then(getTasks)
     }
+    // const deleteTask = taskId => {
+    //     return fetch(`http://localhost:8088/tasks/${taskId}`, {
+    //         method: "DELETE"
+    //     })
+    //         .then(getTasks)
+    // }
     
     const updateTask = task => {
         return fetch(`http://localhost:8088/tasks/${task.id}`, {
@@ -57,7 +67,7 @@ export const TaskProvider = (props) => {
 
     return (
         <TaskContext.Provider value={{
-            tasks, addTasks, getTasks, deleteTask, updateTask, getTaskById
+            tasks, addTasks, getTasks, patchTask, updateTask, getTaskById
         }}>
             {props.children}
         </TaskContext.Provider>
