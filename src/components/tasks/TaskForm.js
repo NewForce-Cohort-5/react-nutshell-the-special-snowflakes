@@ -76,7 +76,7 @@ export const TaskForm = () => {
                   task: task.task,
                   taskCompletionDate: task.taskCompletionDate,
                   isCompleted: false,
-                  userId: parseInt(task.userId),
+                  userId: parseInt(localStorage.getItem('react_nutshell_user')),
                  
                   
               })
