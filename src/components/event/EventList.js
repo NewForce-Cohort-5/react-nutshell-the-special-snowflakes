@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { EventContext } from "./EventProvider"
 import { EventCard } from "./EventCard"
+import "./Event.css"
 import { useNavigate } from "react-router"
 import  Button  from "react-bootstrap/Button"
 
@@ -8,6 +9,7 @@ export const EventList = () => {
   // This state changes when `getEvents()` is invoked below
   const { events, getEvents } = useContext(EventContext)
   const navigate = useNavigate()
+  events.sort((a,b) => new Date(a.date) - new Date(b.date))
 
   //useEffect - reach out to the world for something
   useEffect(() => {
