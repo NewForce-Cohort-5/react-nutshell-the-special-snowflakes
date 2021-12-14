@@ -7,7 +7,7 @@ import { TaskContext } from "./TaskProvider";
 
 
 export const TaskForm = () => {
-    const { addTask, getTaskById, updateTask } = useContext(TaskContext)
+    const { addTasks, getTaskById, updateTask } = useContext(TaskContext)
     
     /*
     With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
@@ -57,22 +57,23 @@ export const TaskForm = () => {
     //     }
 
         const handleSaveTask = () => {
-      
+          
             if (taskId){
               //PUT - update
               updateTask({
                   id: task.id,
                   task: task.task,
-                  
+                  taskCompletionDate: task.taskCompletionDate,
+                  userId: parseInt(task.userId)
               
               })
               .then(() => navigate(`/tasks/${task.id}`))
             }else {
               //POST - add
-              addTask({
+              addTasks({
                   task: task.task,
-                  taskCompletionDate: task.taskCompletionDate
-                  
+                  taskCompletionDate: task.taskCompletionDate,
+                  userId: parseInt(task.userId)
               })
               .then(() => navigate("/tasks"))
             }
@@ -101,6 +102,13 @@ export const TaskForm = () => {
                    onChange={handleControlledInputChange}  defaultValue={task.task}/>
               </div>
           </fieldset>
+          <fieldset>
+              <div className="form-group">
+                  <label htmlFor="taskDate">Completion Date:</label>
+                  <input type="date" id="taskCompletionDate" name="taskCompletionDate" required  className="form-control" placeholder="Task Completion Date" 
+                   onChange={handleControlledInputChange}  defaultValue={task.taskCompletionDate}/>
+              </div>
+          </fieldset>
             
           <button className="btn btn-primary"
           disabled={isLoading}
@@ -108,7 +116,7 @@ export const TaskForm = () => {
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
             handleSaveTask()
           }}>
-        {taskId ? <>Save Location</> : <>Add Location</>}
+        {taskId ? <>Save Task</> : <>Add Task</>}
             </button>
       </form>
     )
