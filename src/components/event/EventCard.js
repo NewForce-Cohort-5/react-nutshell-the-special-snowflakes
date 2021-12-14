@@ -6,7 +6,7 @@ export const EventCard = ({event}) => {
     <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
   <Card.Body>
-    <Card.Title>{event.Title}</Card.Title>
+    <Card.Title>{event.title}</Card.Title>
   </Card.Body>
   <ListGroup className="list-group-flush">
     <ListGroupItem>Date: {event.date}</ListGroupItem>
