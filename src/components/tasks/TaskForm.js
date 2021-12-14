@@ -64,7 +64,9 @@ export const TaskForm = () => {
                   id: task.id,
                   task: task.task,
                   taskCompletionDate: task.taskCompletionDate,
+                  isCompleted: false,
                   userId: parseInt(task.userId)
+                  
               
               })
               .then(() => navigate(`/tasks/${task.id}`))
@@ -73,7 +75,10 @@ export const TaskForm = () => {
               addTasks({
                   task: task.task,
                   taskCompletionDate: task.taskCompletionDate,
-                  userId: parseInt(task.userId)
+                  isCompleted: false,
+                  userId: parseInt(task.userId),
+                 
+                  
               })
               .then(() => navigate("/tasks"))
             }
