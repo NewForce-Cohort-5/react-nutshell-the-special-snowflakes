@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Form, Button, Modal } from 'react-bootstrap';
+import { Form, Button, Modal, Container } from 'react-bootstrap';
 import './Auth.css';
 
 export const Login = (props) => {
@@ -32,7 +32,12 @@ export const Login = (props) => {
 
 
   return (
-    <>
+    <Container 
+      className='d-flex align-items-center'
+      style={{
+        height: '100vh'
+      }}
+    >
       <Modal 
         show={show}
         onHide={() => setShow(false)}
@@ -62,6 +67,6 @@ export const Login = (props) => {
           Log in
         </Button>
       </Form>
-    </>
+    </Container>
   );
 }

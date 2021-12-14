@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Form, Button, Modal } from "react-bootstrap";
+import { Form, Button, Modal, Container } from "react-bootstrap";
 import "./Auth.css";
 
 export const Regitser = () => {
@@ -41,7 +41,12 @@ export const Regitser = () => {
   }
 
   return (
-    <>
+    <Container
+      className='d-flex align-items-center'
+      style={{
+        height: '100vh'
+      }}
+    >
       <Modal 
         show={show}
         onHide={() => setShow(false)}
@@ -70,6 +75,6 @@ export const Regitser = () => {
           Register
         </Button>
       </Form>
-    </>
+    </Container>
   );
 }
