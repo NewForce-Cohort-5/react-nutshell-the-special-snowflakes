@@ -1,12 +1,15 @@
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import React, { Component } from "react";
+import { TaskProvider } from "./tasks/TaskProvider";
+import { TaskList } from "./tasks/TaskList";
 
 export default class ApplicationViews extends Component {
 
   render() {
     return (
       <React.Fragment>
-
+        <TaskProvider>
+          
         <Route
           exact path="/" render={props => {
             return null
@@ -35,11 +38,13 @@ export default class ApplicationViews extends Component {
           }}
         />
 
-        <Route
+        {/* <Route
           path="/tasks" render={props => {
-            return null
+            return 
             // Remove null and return the component which will show the user's tasks
-          }}
+          }} */}
+
+          <Route path="tasks/*" element={<TaskList/>}
         />
 
         <Route
@@ -48,7 +53,8 @@ export default class ApplicationViews extends Component {
             // Remove null and return the component which will show the user's events
           }}
         />
-
+        
+        </TaskProvider>
       </React.Fragment>
     );
   }
