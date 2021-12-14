@@ -19,8 +19,10 @@ export const EventList = () => {
 
   return (
     <>
-    <h2>Events</h2>
-    <Button variant="primary" type="submit" onClick={() => {navigate("/events/create")}}>Add New Event</Button>
+    <div className="events__heading">
+      <h2>Events</h2>
+      <Button variant="primary" type="submit" onClick={() => {navigate("/events/create")}}>Add New Event</Button>
+    </div>
     <div className="events">
       {
         events.map(event => {
