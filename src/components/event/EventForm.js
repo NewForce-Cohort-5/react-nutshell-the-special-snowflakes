@@ -35,7 +35,8 @@ export const EventForm = () => {
           addEvent({
               title: event.title,
               date: event.date,
-              location: (event.location)
+              location: (event.location),
+              userId: parseInt(localStorage.getItem("react_nutshell_user"))
           })
           .then(() => navigate("/events"))
         }
