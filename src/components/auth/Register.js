@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Form, Button, Modal, Container } from "react-bootstrap";
 import "./Auth.css";
 
-export const Regitser = () => {
+export const Register = () => {
   const [email, setEmail] = useState({});
   const [show, setShow] = useState(false);
   const navigate = useNavigate();

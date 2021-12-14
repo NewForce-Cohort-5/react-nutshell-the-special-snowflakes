@@ -5,7 +5,7 @@ import ApplicationViews from "./ApplicationViews";
 import "./Nutshell.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Login } from "./auth/Login";
-import { Regitser } from "./auth/Register";
+import { Register } from "./auth/Register";
 
 class Nutshell extends Component {
   render() {
@@ -13,7 +13,7 @@ class Nutshell extends Component {
       <Routes>
         <Route path="/*" element={<Auth />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Regitser />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     );
   }
