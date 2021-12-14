@@ -5,8 +5,7 @@ import  ListGroupItem  from "react-bootstrap/ListGroupItem";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const EventCard = ({event}) => (
-    <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+  <Card className="upcomingEvent" style={{ width: '18rem' }}>
   <Card.Body>
     <Card.Title>{event.title}</Card.Title>
   </Card.Body>

@@ -1,12 +1,17 @@
 .events {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-  
-.event {
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid goldenrod;
+
+.upcomingEvent {
+  margin: 1em 0;
 }
+
+/* only for a single event that is next on the agenda */
+.upcomingEvent:first-child {
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: aqua;
+}
+
