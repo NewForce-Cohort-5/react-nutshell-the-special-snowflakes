@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { useNavigate } from "react-router"
+
 
 import { TaskCard } from "./TaskCard"
 
@@ -7,6 +7,7 @@ import { TaskCard } from "./TaskCard"
 import "./Task.css"
 
 import { TaskContext } from "./TaskProvider"
+import { useNavigate } from "react-router-dom"
 
 
 export const TaskList = () => {
@@ -26,7 +27,7 @@ export const TaskList = () => {
 
     
     <>
-    <h2>Task</h2>
+    <h2>Tasks</h2>
     <button onClick={() => navigate("/Tasks/create")}>
         Add Task
     </button>
