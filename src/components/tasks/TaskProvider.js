@@ -1,39 +1,65 @@
 import React, { useState, createContext } from "react"
 
-// The context is imported and used by individual components that need data
 export const TaskContext = createContext()
 
 
+
 export const TaskProvider = (props) => {
-        const [tasks, setTask]  = useState([])
+    const [tasks, setTasks] = useState([])
+  
 
-    const getTasks = () => {
-
+//will need to update fetch("") calls
+     const getTasks = () => {
+        return fetch("http://localhost:8088/tasks")
+        .then(res => res.json())
+        .then(setTasks)
     }
 
+    const addTasks = taskObj => {
+        return fetch("http://localhost:8088/tasks", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(taskObj)
+        })
+        
+        .then(getTasks)
+      
+    }
+
+
+    const getTaskById = (id) => {
+        return fetch(`http://localhost:8088/tasks/${id}`)
+            .then(res => res.json())
+
+    }
+    
+    const deleteTask = taskId => {
+        return fetch(`http://localhost:8088/tasks/${taskId}`, {
+            method: "DELETE"
+        })
+            .then(getTasks)
+    }
+    
+    const updateTask = task => {
+        return fetch(`http://localhost:8088/tasks/${task.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(task)
+        })
+          .then(getTasks)
+      }
+      
+
+
+    return (
+        <TaskContext.Provider value={{
+            tasks, addTasks, getTasks, deleteTask, updateTask, getTaskById
+        }}>
+            {props.children}
+        </TaskContext.Provider>
+    )
 }
-
-const addTasks = () => {
-
-}
-
-const getTaskById = (id) => {
-
-}
-
-const updateTask = task => {
-
-
-}
-
-const deleteTask = taskId => {
-
-}
-
-return (
-    <TaskContext.Provider value={{
-        addTasks, getTaskById, getTasks, updateTask, deleteTask
-    }}>
-        {props.children}
-    </TaskContext.Provider>
-)
