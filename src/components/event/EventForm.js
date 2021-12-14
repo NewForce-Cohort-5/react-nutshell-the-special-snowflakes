@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { EventContext } from "./EventProvider"
 import { useNavigate, useParams, } from 'react-router-dom';
 
-export const AnimalForm = () => {
+export const EventForm = () => {
     const { addEvent, getEventById} = useContext(EventContext)
 
     const [event, setEvent] = useState({});

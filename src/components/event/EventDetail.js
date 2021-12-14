@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
 import { EventContext } from "./EventProvider"
-import "./Animal.css"
 import { useParams, useNavigate } from "react-router-dom"
 
 export const EventDetail = () => {
