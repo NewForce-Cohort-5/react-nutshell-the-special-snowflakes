@@ -1,7 +1,7 @@
 import { Route,Routes } from "react-router-dom";
 import React, { Component } from "react";
 import { EventList } from "./event/EventList";
-import {EventForm} from "./event/EventForm"
+import { EventForm } from "./event/EventForm"
 import { EventDetail } from "./event/EventDetail";
 import { EventProvider } from "./event/EventProvider";
 
@@ -48,12 +48,8 @@ export default class ApplicationViews extends Component {
         />
 
         <Route path="/events/*" element={<EventList />} />
+        <Route path="/events/create/*" element={<EventForm />}/>
         <Route
-          path="/events/create/*" render={props => {
-            return {EventForm}
-          }}
-        />
-         <Route
           path="/events/detail/:eventId/*" render={props => {
             return {EventDetail}
           }}
