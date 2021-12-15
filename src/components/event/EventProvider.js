@@ -29,15 +29,27 @@ export const EventProvider = (props) => {
         .then(res => res.json())
     }
 
-    /*
-        Return a context provider which has the
-        `events` state, `getEvents` and `getEventById` functions,
-        and the `addEvent` function as keys. This
-        allows any child elements to access them.
-    */
+    const deleteEvent = (id) => {
+        return fetch(`http://localhost:8088/events/${id}`, {
+        method: "DELETE"
+    })
+        .then(getEvents)
+    }
+
+    const updateEvent = event => {
+        return fetch(`http://localhost:8088/events/${event.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(event)
+        })
+          .then(getEvents)
+      }
+
     return (
         <EventContext.Provider value={{
-            events, getEvents, getEventById, addEvent
+            events, getEvents, getEventById, addEvent, deleteEvent, updateEvent
         }}>
             {props.children}
         </EventContext.Provider>

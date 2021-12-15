@@ -17,4 +17,10 @@
   font-weight: bold;
   font-size: 1.5em;
   background-color: aqua;
+  border-width: 4px;
+}
+
+/* individual card that is displayed on its detail page */
+.event-detail__card {
+  margin: 5em auto;
 }
