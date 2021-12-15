@@ -3,6 +3,7 @@
   "articles": [],
   "messages": [],
   "events": [],
-  "tasks": [],
+  "tasks": [
+          ],
   "friends": []
 }
