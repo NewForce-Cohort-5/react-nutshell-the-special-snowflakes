@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import "./Task.css"
 import { useNavigate, useParams } from 'react-router-dom';
 import { TaskContext } from "./TaskProvider";
+import { Button } from "react-bootstrap";
 
 
 
@@ -116,14 +117,22 @@ export const TaskForm = () => {
               </div>
           </fieldset>
             
-          <button className="btn btn-primary"
+          {/* <button className="btn btn-primary"
           disabled={isLoading}
           onClick={event => {
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
             handleSaveTask()
           }}>
         {taskId ? <>Save Task</> : <>Add Task</>}
-            </button>
+            </button> */}
+
+            <Button variant="secondary"
+            disabled={isLoading}
+          onClick={event => {
+            event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+            handleSaveTask()
+          }}>
+        {taskId ? <>Save Task</> : <>Add Task</>}</Button>{' '}
       </form>
     )
     }

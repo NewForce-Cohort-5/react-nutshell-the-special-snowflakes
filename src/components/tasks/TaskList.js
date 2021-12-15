@@ -8,13 +8,14 @@ import "./Task.css"
 
 import { TaskContext } from "./TaskProvider"
 import { useNavigate } from "react-router-dom"
+import { Button } from "react-bootstrap"
 
 
 export const TaskList = () => {
   // This state changes when `getAnimals()` is invoked below
   const { tasks, getTasks } = useContext(TaskContext)
- 
-
+  
+  
   //useEffect - reach out to the world for something
   useEffect(() => {
     console.log("TaskList: useEffect - getTasks")
@@ -28,15 +29,14 @@ export const TaskList = () => {
     
     <>
     <h2>Tasks</h2>
-    <button onClick={() => navigate("/Tasks/create")}>
+    <Button variant="secondary" onClick={() => navigate("/Tasks/create")}>
         Add Task
-    </button>
+    </Button>
     <div className="tasks">
       {console.log("TaskList: Render", tasks)}
       {
         
         tasks.filter(task => task.isCompleted === false).map(task => {
-
           
           return <TaskCard 
           key={task.id}

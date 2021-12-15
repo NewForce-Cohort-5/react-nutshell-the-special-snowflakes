@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Button, InputGroup } from "react-bootstrap"
+import { Button, Card, InputGroup, ListGroup } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import "./Task.css"
 import { TaskContext } from "./TaskProvider"
@@ -35,19 +35,26 @@ export const TaskCard = ({task}) => {
     }, [])
 
     return (
-    <section className="task">
-        <div className="task__id">Task: {task.id}</div>
-          <div className="task__name"> {task.task}</div>
-    <div className="Task__completeDate">Expected Completion: {task.taskCompletionDate}</div>
+   
 
-          <InputGroup className="mb-3">
+  <Card>
+  <Card.Header className="task__name">{task.task}</Card.Header>
+  <Card.Body>
+      <Card.Text className="Task__completeDate">Expected Completion: {new Date(task.taskCompletionDate).toLocaleDateString('en-us')}     
+    </Card.Text>
+
+       <InputGroup className="mb-3">
     <InputGroup.Checkbox aria-label="Checkbox for following text input" onChange={handleComplete}/> Completed?
-  </InputGroup>
-  
+  </InputGroup>  
   <Button variant="secondary" onClick={() => {
       navigate(`/tasks/edit/${task.id}`)
   }}>Edit</Button>{' '}
-      </section>
+  </Card.Body>
+</Card>
+
+
+     
+     
 )
 }
 
