@@ -30,7 +30,7 @@ export const EventDetail = () => {
     }, [])
 
   return (
-    <Card className="event" style={{ width: '18rem' }}>
+    <Card className="event-detail__card" style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title className="event__title">
           {event.title}
@@ -41,8 +41,8 @@ export const EventDetail = () => {
         <ListGroupItem className="event__location">Location: {event.location}</ListGroupItem>
       </ListGroup>
       <Card.Body>
-        <Button variant="primary" onClick={() => {navigate(`/events/edit/${event.id}`)}}>Edit</Button>
-        <Button variant="primary" onClick={handleDelete}>Delete</Button>
+        <Button variant="outline-secondary" onClick={() => {navigate(`/events/edit/${event.id}`)}}>Edit</Button>
+        <Button variant="outline-danger" onClick={handleDelete}>Delete</Button>
       </Card.Body>
     </Card>
   )

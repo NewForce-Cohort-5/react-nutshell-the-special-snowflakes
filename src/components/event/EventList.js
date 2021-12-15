@@ -21,7 +21,7 @@ export const EventList = () => {
     <>
     <div className="events__heading">
       <h2>Events</h2>
-      <Button variant="primary" type="submit" onClick={() => {navigate("/events/create")}}>Add New Event</Button>
+      <Button variant="success" type="submit" onClick={() => {navigate("/events/create")}}>Add New Event</Button>
     </div>
     <div className="events">
       {
