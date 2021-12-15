@@ -7,19 +7,22 @@ import { TaskContext } from "./TaskProvider"
 
 export const TaskCard = ({task}) => {
 
-    const { getTaskById, patchTask } = useContext(TaskContext)
+    const { getTaskById, patchTask, getTasks } = useContext(TaskContext)
     
     const [ tasks, setTasks ] = useState({})
+
+
 
     const {taskId} = useParams();
 	const navigate = useNavigate();
 
+ 
+
     const handleComplete = () => {
+      
         patchTask(task.id)
-          .then(() => {
-            navigate("/tasks")
-          })
-      }
+             .then(getTasks)
+              }
 
 
   useEffect(() => {
@@ -27,6 +30,7 @@ export const TaskCard = ({task}) => {
     getTaskById(taskId)
     .then((response) => {
       setTasks(response)
+     
     })
     }, [])
 
@@ -35,15 +39,20 @@ export const TaskCard = ({task}) => {
         <div className="task__id">Task: {task.id}</div>
           <div className="task__name"> {task.task}</div>
     <div className="Task__completeDate">Expected Completion: {task.taskCompletionDate}</div>
+
           <InputGroup className="mb-3">
-    <InputGroup.Checkbox aria-label="Checkbox for following text input" onChange={event => 
-    event.preventDefault()
-         handleComplete({task.isCompleted === true
-         })}/> Completed?
+    <InputGroup.Checkbox aria-label="Checkbox for following text input" onChange={handleComplete}/> Completed?
   </InputGroup>
+  
   <Button variant="secondary" onClick={() => {
       navigate(`/tasks/edit/${task.id}`)
   }}>Edit</Button>{' '}
       </section>
 )
 }
+
+
+// disabled={isLoading} 
+//     onChange={event => 
+//     event.preventDefault()
+//     handleComplete()}
