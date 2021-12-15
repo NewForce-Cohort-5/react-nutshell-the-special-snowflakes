@@ -77,7 +77,7 @@ export const EventForm = () => {
             <input type="text" id="eventTitle" name="title" required autoFocus className="form-control"
             placeholder="Event title"
             onChange={handleControlledInputChange}
-            defaultValue={event.name}/>
+            defaultValue={event.title}/>
           </div>
         </fieldset>
 
