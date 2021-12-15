@@ -35,8 +35,9 @@ export const TaskList = () => {
     <div className="tasks">
       {console.log("TaskList: Render", tasks)}
       {
-        
-        tasks.filter(task => task.isCompleted === false).map(task => {
+
+           tasks.filter(task => task.isCompleted === false).map(task => {
+          
           
           return <TaskCard 
           key={task.id}
