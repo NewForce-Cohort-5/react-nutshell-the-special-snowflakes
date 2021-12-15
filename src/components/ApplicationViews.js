@@ -4,6 +4,8 @@ import { EventList } from "./event/EventList";
 import { EventForm } from "./event/EventForm"
 import { EventDetail } from "./event/EventDetail";
 import { EventProvider } from "./event/EventProvider";
+import { MessageList } from "./message/MessageList";
+import { MessageProvider } from "./message/MessageProvider";
 
 export default class ApplicationViews extends Component {
 
@@ -11,51 +13,24 @@ export default class ApplicationViews extends Component {
     return (
       <React.Fragment>
         <EventProvider>
-        <Routes>
-        <Route
-          exact path="/" render={props => {
-            return null
-            // Remove null and return the component which will show news articles
-          }}
-        />
+          <MessageProvider>
+            <Routes>
+              
 
-        <Route
-          exact path="/register" render={props => {
-            return null
-            // Remove null and return the component which will handle user registration
-          }}
-        />
+              <Route path="/messages" element={<MessageList />} />
 
-        <Route
-          path="/friends" render={props => {
-            return null
-            // Remove null and return the component which will show list of friends
-          }}
-        />
+              
 
-        <Route
-          path="/messages" render={props => {
-            return null
-            // Remove null and return the component which will show the messages
-          }}
-        />
-
-        <Route
-          path="/tasks" render={props => {
-            return null
-            // Remove null and return the component which will show the user's tasks
-          }}
-        />
-
-        <Route path="/events/*" element={<EventList />} />
-        <Route path="/events/create/*" element={<EventForm />}/>
-        <Route
-          path="/events/detail/:eventId/*" render={props => {
-            return {EventDetail}
-          }}
-        />
-      </Routes>
-      </EventProvider>
+              <Route path="/events/*" element={<EventList />} />
+              <Route path="/events/create/*" element={<EventForm />}/>
+              <Route
+                path="/events/detail/:eventId/*" render={props => {
+                  return {EventDetail}
+                }}
+              />
+            </Routes>
+          </MessageProvider>
+        </EventProvider>
       </React.Fragment>
     );
   }
