@@ -1,5 +1,9 @@
-import { Route,Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import React, { Component } from "react";
+import { TaskProvider } from "./tasks/TaskProvider";
+import { TaskList } from "./tasks/TaskList";
+import { TaskForm } from "./tasks/TaskForm";
+
 import { EventList } from "./event/EventList";
 import { EventForm } from "./event/EventForm"
 import { EventDetail } from "./event/EventDetail";
@@ -10,52 +14,24 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <EventProvider>
-        <Routes>
-        <Route
-          exact path="/" render={props => {
-            return null
-            // Remove null and return the component which will show news articles
-          }}
-        />
-
-        <Route
-          exact path="/register" render={props => {
-            return null
-            // Remove null and return the component which will handle user registration
-          }}
-        />
-
-        <Route
-          path="/friends" render={props => {
-            return null
-            // Remove null and return the component which will show list of friends
-          }}
-        />
-
-        <Route
-          path="/messages" render={props => {
-            return null
-            // Remove null and return the component which will show the messages
-          }}
-        />
-
-        <Route
-          path="/tasks" render={props => {
-            return null
-            // Remove null and return the component which will show the user's tasks
-          }}
-        />
-
-        <Route path="/events/*" element={<EventList />} />
+     <EventProvider>
+        <TaskProvider>
+              <Routes>
+               
+            <Route path="tasks/edit/:taskId/*" element={<TaskForm />} />
+             <Route path="tasks/create/*" element={<TaskForm />} />
+          <Route path="tasks/*" element={<TaskList/>}/>
+          <Route path="/events/*" element={<EventList />} />
         <Route path="/events/create/*" element={<EventForm />}/>
         <Route
           path="/events/detail/:eventId/*" render={props => {
             return {EventDetail}
           }}
         />
-      </Routes>
+       </Routes>
+        </TaskProvider>
       </EventProvider>
+    
       </React.Fragment>
     );
   }
