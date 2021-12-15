@@ -41,8 +41,8 @@ export const EventDetail = () => {
         <ListGroupItem className="event__location">Location: {event.location}</ListGroupItem>
       </ListGroup>
       <Card.Body>
-        <Button variant="primary">Edit</Button>
-        <Button variant="primary">Delete</Button>
+        <Button variant="primary" onClick={() => {navigate(`/events/edit/${event.id}`)}}>Edit</Button>
+        <Button variant="primary" onClick={handleDelete}>Delete</Button>
       </Card.Body>
     </Card>
   )
