@@ -3,7 +3,7 @@ import { EventContext } from "./EventProvider"
 import { useNavigate, useParams, } from 'react-router-dom';
 
 export const EventForm = () => {
-    const { addEvent, getEventById} = useContext(EventContext)
+    const { addEvent, getEventById, updateEvent} = useContext(EventContext)
 
     const [event, setEvent] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +31,17 @@ export const EventForm = () => {
       } else {
         //disable the button - no extra clicks
         setIsLoading(true);
+        if (eventId) {
+          //PUT - update
+          updateEvent({
+            id: event.id,
+            title: event.title,
+            date: event.date,
+            location: (event.location),
+            userId: parseInt(localStorage.getItem("react_nutshell_user"))
+          })
+          .then(() => navigate(`/events/detail/${event.id}`))
+        } else {
           //POST - add
           addEvent({
               title: event.title,
@@ -41,6 +52,7 @@ export const EventForm = () => {
           .then(() => navigate("/events"))
         }
       }
+    }
 
 
     useEffect(() => {
