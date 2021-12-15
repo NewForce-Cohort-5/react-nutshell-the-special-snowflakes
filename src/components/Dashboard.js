@@ -1,10 +1,57 @@
-import React from "react";
-import { MessageList } from "./message/MessageList";
+import React, {Component, useState} from "react";
+import NavBar from "./nav/NavBar";
+import ApplicationViews from "./ApplicationViews";
+import { Routes, Route} from "react-router-dom";
+import { Offcanvas, Button, Link } from "bootstrap";
 
-export const Dashboard = () => {
+class Dashboard extends Component {
+  render() {
+    return (
+      <div class="d-flex h-100 text-center text-white bg-dark">
+    
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <main class="px-3">
+        <h1>Special Snowflakes</h1>
+        <p class="lead">You're one-stop dashboard to keep track of upcoming events, daily tasks, and chat messages.</p>
+        <p class="lead">
+          <Link className="btn btn-lg btn-secondary fw-bold border-white bg-white" to="/messages">Let's Go</Link>
+        </p>
+      </main>
+  
+      </div>
+
+      </div>
+    )
+  }
+}
+
+  
+
+
+function Example() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
-      <MessageList />
+      <Button variant="primary" onClick={handleShow}>
+        Launch
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
-  )
+  );
 }
+
+render(<Example />);

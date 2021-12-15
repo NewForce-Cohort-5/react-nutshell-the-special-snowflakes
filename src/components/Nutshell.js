@@ -21,10 +21,12 @@ class Nutshell extends Component {
 
 const Auth = () => {
   if (localStorage.getItem('react_nutshell_user')) {
+    
     return(
       <>
         <NavBar />
         <ApplicationViews />
+        {/* Here I would like to render the splashpage/dashboard (Dashboard.js) intead of navbar and app views */}
       </>
     );
   } else {
