@@ -24,6 +24,14 @@ export const TaskCard = ({task}) => {
              .then(getTasks)
               }
 
+              // This might also work?
+
+              const formatDate = date => {
+                const dateSplit = date.split('-');
+                // This will definitely work for our app
+                return new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]).toString().split(' ').slice(1, 4).join(' ');
+              }
+
 
   useEffect(() => {
   console.log()
@@ -40,7 +48,7 @@ export const TaskCard = ({task}) => {
   <Card>
   <Card.Header className="task__name">{task.task}</Card.Header>
   <Card.Body>
-      <Card.Text className="Task__completeDate">Expected Completion: {new Date(task.taskCompletionDate).toLocaleDateString('en-us')}     
+      <Card.Text className="Task__completeDate">Expected Completion:{formatDate(task.taskCompletionDate)}
     </Card.Text>
 
        <InputGroup className="mb-3">
@@ -58,6 +66,14 @@ export const TaskCard = ({task}) => {
 )
 }
 
+
+// This might also work?
+
+// const formatDate = date => {
+//   const dateSplit = getTheDate[0].split('-');
+//   // This will definitely work for our app
+//   return new Date(dateSplit, dateSplit - 1, dateSplit).toString().split(' ').slice(1, 4).join(' ');
+// }
 
 // disabled={isLoading} 
 //     onChange={event => 
