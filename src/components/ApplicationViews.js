@@ -1,5 +1,9 @@
-import { Route,Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import React, { Component } from "react";
+import { TaskProvider } from "./tasks/TaskProvider";
+import { TaskList } from "./tasks/TaskList";
+import { TaskForm } from "./tasks/TaskForm";
+
 import { EventList } from "./event/EventList";
 import { EventForm } from "./event/EventForm"
 import { EventDetail } from "./event/EventDetail";
@@ -13,14 +17,12 @@ export default class ApplicationViews extends Component {
     return (
       <React.Fragment>
         <EventProvider>
-          <MessageProvider>
+          <TaskProvider>
             <Routes>
-              
-
-              <Route path="/messages" element={<MessageList />} />
-
-              
-
+                    
+              <Route path="tasks/edit/:taskId/*" element={<TaskForm />} />
+              <Route path="tasks/create/*" element={<TaskForm />} />
+              <Route path="tasks/*" element={<TaskList/>}/>
               <Route path="/events/*" element={<EventList />} />
               <Route path="/events/create/*" element={<EventForm />}/>
               <Route
@@ -29,8 +31,9 @@ export default class ApplicationViews extends Component {
                 }}
               />
             </Routes>
-          </MessageProvider>
+          </TaskProvider>
         </EventProvider>
+    
       </React.Fragment>
     );
   }
