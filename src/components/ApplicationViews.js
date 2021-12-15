@@ -16,23 +16,25 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <EventProvider>
-          <TaskProvider>
-            <Routes>
-                    
-              <Route path="tasks/edit/:taskId/*" element={<TaskForm />} />
-              <Route path="tasks/create/*" element={<TaskForm />} />
-              <Route path="tasks/*" element={<TaskList/>}/>
-              <Route path="/events/*" element={<EventList />} />
-              <Route path="/events/create/*" element={<EventForm />}/>
-              <Route
-                path="/events/detail/:eventId/*" render={props => {
-                  return {EventDetail}
-                }}
-              />
-            </Routes>
-          </TaskProvider>
-        </EventProvider>
+        <MessageProvider>
+          <EventProvider>
+            <TaskProvider>
+              <Routes>
+                <Route path="messages" element={<MessageList />} />
+                <Route path="tasks/edit/:taskId/*" element={<TaskForm />} />
+                <Route path="tasks/create/*" element={<TaskForm />} />
+                <Route path="tasks/*" element={<TaskList/>}/>
+                <Route path="/events/*" element={<EventList />} />
+                <Route path="/events/create/*" element={<EventForm />}/>
+                <Route
+                  path="/events/detail/:eventId/*" render={props => {
+                    return {EventDetail}
+                  }}
+                />
+              </Routes>
+            </TaskProvider>
+          </EventProvider>
+        </MessageProvider>
     
       </React.Fragment>
     );

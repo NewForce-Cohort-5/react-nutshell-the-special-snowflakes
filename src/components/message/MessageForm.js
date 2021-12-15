@@ -30,7 +30,7 @@ export const MessageForm = () => {
         userId: parseInt(localStorage.getItem('react_nutshell_user')),
         content: message
       }).then(() => setMessage(""));
-    } else {
+    } else if (message.length && messageToEdit.id) {
       return editMessage({ 
         userId: parseInt(localStorage.getItem('react_nutshell_user')),
         content: message,
