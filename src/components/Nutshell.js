@@ -26,7 +26,6 @@ const Auth = () => {
       <>
         <NavBar />
         <ApplicationViews />
-        {/* Here I would like to render the splashpage/dashboard (Dashboard.js) intead of navbar and app views */}
       </>
     );
   } else {

@@ -1,30 +1,25 @@
 import React, {Component, useState} from "react";
-import NavBar from "./nav/NavBar";
-import ApplicationViews from "./ApplicationViews";
-import { Routes, Route} from "react-router-dom";
-import { Offcanvas, Button, Link } from "bootstrap";
+import { Routes, Route, Link} from "react-router-dom";
+import { Offcanvas, Button } from "bootstrap";
 
-class Dashboard extends Component {
-  render() {
-    return (
+
+export const Home = () => (
+    <>
       <div class="d-flex h-100 text-center text-white bg-dark">
-    
       <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
       <main class="px-3">
         <h1>Special Snowflakes</h1>
         <p class="lead">You're one-stop dashboard to keep track of upcoming events, daily tasks, and chat messages.</p>
         <p class="lead">
-          <Link className="btn btn-lg btn-secondary fw-bold border-white bg-white" to="/messages">Let's Go</Link>
+          <Link className="btn btn-lg btn-secondary fw-bold border-white bg-white" to="/">Meet The Team</Link>
         </p>
       </main>
   
       </div>
-
       </div>
-    )
-  }
-}
+    </>
+)
 
   
 
@@ -54,4 +49,3 @@ function Example() {
   );
 }
 
-render(<Example />);
