@@ -35,14 +35,14 @@ export const TaskProvider = (props) => {
 
     }
     
-    const patchTask = taskId => {
+    const patchTask = (taskId, isComplete) => {
 
         return fetch(`http://localhost:8088/tasks/${taskId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({isCompleted: true})
+            body: JSON.stringify({isCompleted: isComplete})
         })
     }
     // const deleteTask = taskId => {
@@ -52,6 +52,8 @@ export const TaskProvider = (props) => {
     //         .then(getTasks)
     // }
     
+    
+
     const updateTask = task => {
         return fetch(`http://localhost:8088/tasks/${task.id}`, {
           method: "PUT",

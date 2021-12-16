@@ -24,6 +24,8 @@ export default class ApplicationViews extends Component {
                 <Route path="tasks/edit/:taskId/*" element={<TaskForm />} />
                 <Route path="tasks/create/*" element={<TaskForm />} />
                 <Route path="tasks/*" element={<TaskList/>}/>
+                {/* <Route path="tasks/completed*" element={<TaskList/>}/> */}
+
                 <Route path="/events/*" element={<EventList />} />
                 <Route path="/events/create/*" element={<EventForm />}/>
                 <Route path="/events/detail/:eventId/*" element={<EventDetail />} />

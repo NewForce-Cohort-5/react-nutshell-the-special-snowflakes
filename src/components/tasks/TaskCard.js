@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Button, Card, InputGroup, ListGroup } from "react-bootstrap"
+import { Button, Card, InputGroup } from "react-bootstrap"
+
 import { useNavigate, useParams } from "react-router-dom"
 import "./Task.css"
 import { TaskContext } from "./TaskProvider"
@@ -8,6 +9,8 @@ import { TaskContext } from "./TaskProvider"
 export const TaskCard = ({task}) => {
 
     const { getTaskById, patchTask, getTasks } = useContext(TaskContext)
+
+    
     
     const [ tasks, setTasks ] = useState({})
 
@@ -19,10 +22,16 @@ export const TaskCard = ({task}) => {
  
 
     const handleComplete = () => {
-      
-        patchTask(task.id)
-             .then(getTasks)
-              }
+    if (taskId) {
+        patchTask(task.id, false)
+             .then(getTasks) 
+            } else {
+              patchTask(task.id, true)
+              .then(getTasks) 
+            }
+             }
+    
+              
 
               // This might also work?
 
@@ -35,29 +44,32 @@ export const TaskCard = ({task}) => {
 
   useEffect(() => {
   console.log()
-    getTaskById(taskId)
+  if (taskId) {
+     getTaskById(taskId)
     .then((response) => {
-      setTasks(response)
-     
+      setTasks(response) 
+       
     })
+    }
     }, [])
 
     return (
    
 
   <Card>
+ 
   <Card.Header className="task__name">{task.task}</Card.Header>
   <Card.Body>
-      <Card.Text className="Task__completeDate">Expected Completion:{formatDate(task.taskCompletionDate)}
+      <Card.Text className="Task__completeDate">Expected Completion: {formatDate(task.taskCompletionDate)}
     </Card.Text>
 
        <InputGroup className="mb-3">
-    <InputGroup.Checkbox aria-label="Checkbox for following text input" onChange={handleComplete}/> Completed?
+    <InputGroup.Checkbox aria-label="Checkbox for following text input" onChange={handleComplete}/> {taskId ? <>Completed?</> : <>To Be Completed</>}
   </InputGroup>  
   <Button variant="secondary" onClick={() => {
       navigate(`/tasks/edit/${task.id}`)
   }}>Edit</Button>{' '}
-  </Card.Body>
+    </Card.Body>
 </Card>
 
 
