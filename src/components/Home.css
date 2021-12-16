@@ -18,11 +18,17 @@
 }
 
 .offcanvas__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin: 0 auto;
 }
 
 .img__meet-team {
-    width: 100px;
+  height: 300px;
+}
+
+.team__card {
+    margin: 2em 0;
+}
+
+.btn__github {
+    font-size: 0.75em;
 }

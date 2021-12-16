@@ -29,31 +29,44 @@ export const Home = () => {
         </Offcanvas.Header>
         <Offcanvas.Body className="offcanvas__body">
         
-        <Row>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={require('../imgs/cam.png')} />
+        
+        <Card className="team__card" style={{ width: '18rem' }}>
+          <Card.Img className="img__meet-team" variant="top" src={require('../imgs/cam.png')} />
           <Card.Body>
             <Card.Title>Cameron</Card.Title>
             <Card.Text>
               Brief description of what you did in project 
             </Card.Text>
-            <Button href="https://github.com/cresuta" target="_blank" className="btn btn-lg btn-secondary fw-bold border-white">Cameron's Github</Button>
+            <Button href="https://github.com/cresuta" target="_blank" className="btn btn-lg btn-secondary fw-bold border-white btn__github">Github</Button>
           </Card.Body>
         </Card>
-        </Row>
+        
 
-        <Row>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={require('../imgs/heaven.png')} />
+        
+        <Card className="team__card" style={{ width: '18rem' }}>
+          <Card.Img className="img__meet-team" variant="top" src={require('../imgs/heaven.png')} />
           <Card.Body>
             <Card.Title>Heaven</Card.Title>
             <Card.Text>
               Brief description of what you did in project 
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button href="https://github.com/heavenburdette1988" target="_blank" className="btn btn-lg btn-secondary fw-bold border-white btn__github">Github</Button>
           </Card.Body>
         </Card>
-        </Row>
+        
+
+        
+        <Card className="team__card" style={{ width: '18rem' }}>
+          <Card.Img className="img__meet-team" variant="top" src={require('../imgs/andy.png')} />
+          <Card.Body>
+            <Card.Title>Andy</Card.Title>
+            <Card.Text>
+              Brief description of what you did in project 
+            </Card.Text>
+            <Button href="https://github.com/Pstyne" target="_blank" className="btn btn-lg btn-secondary fw-bold border-white btn__github">Github</Button>
+          </Card.Body>
+        </Card>
+        
          
         
         </Offcanvas.Body>
