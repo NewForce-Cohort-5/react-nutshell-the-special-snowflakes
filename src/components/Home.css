@@ -12,3 +12,17 @@
 .lead__tagline {
     font-style: italic;
 }
+
+.home__content .btn__meet-team {
+    margin-top: 1em; 
+}
+
+.offcanvas__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img__meet-team {
+    width: 100px;
+}
