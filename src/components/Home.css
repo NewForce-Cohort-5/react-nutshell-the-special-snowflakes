@@ -1,0 +1,14 @@
+.home__container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2133x1600/211fc2e2bd48e4014b82d7a31790658a/photo-1516715094483-75da7dee9758.jpg");
+    background-size: cover;
+}
+
+.home__content {
+    margin: 10em auto;
+}
+
+.lead__tagline {
+    font-style: italic;
+}

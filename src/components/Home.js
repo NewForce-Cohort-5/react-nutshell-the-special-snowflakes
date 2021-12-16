@@ -1,40 +1,27 @@
-import React, {Component, useState} from "react";
-import { Routes, Route, Link} from "react-router-dom";
-import { Offcanvas, Button } from "bootstrap";
+import React, { useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {Button, Offcanvas} from "react-bootstrap";
+import "./Home.css"
 
-
-export const Home = () => (
+export const Home = () => {
+  
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const navigate = useNavigate()
+  
+    return (
     <>
-      <div class="d-flex h-100 text-center text-white bg-dark">
+      <div className="d-flex text-center text-white bg-dark home__container">
       <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-      <main class="px-3">
+      <main className="px-3 home__content">
         <h1>Special Snowflakes</h1>
-        <p class="lead">You're one-stop dashboard to keep track of upcoming events, daily tasks, and chat messages.</p>
-        <p class="lead">
-          <Link className="btn btn-lg btn-secondary fw-bold border-white bg-white" to="/">Meet The Team</Link>
+        <p className="lead lead__tagline">You're one-stop dashboard to keep track of upcoming events, daily tasks, and chat messages.</p>
+        <p className="lead">
+        <Button className="btn btn-lg btn-secondary fw-bold border-white" onClick={handleShow}>Meet The Team</Button> 
         </p>
       </main>
-  
-      </div>
-      </div>
-    </>
-)
-
-  
-
-
-function Example() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch
-      </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
@@ -45,7 +32,16 @@ function Example() {
           have chosen. Like, text, images, lists, etc.
         </Offcanvas.Body>
       </Offcanvas>
+  
+      </div>
+      </div>
+
     </>
-  );
+    )
+  
 }
+
+
+// render(<Example />);
+
 
