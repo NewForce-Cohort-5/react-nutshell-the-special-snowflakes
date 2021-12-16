@@ -1,6 +1,5 @@
 import React, { useState} from "react";
-import {Button, Offcanvas, Row, Card} from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import {Button, Offcanvas, Card} from "react-bootstrap";
 import "./Home.css"
 
 export const Home = () => {
@@ -8,7 +7,6 @@ export const Home = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const navigate = useNavigate();
   
     return (
     <>
@@ -61,7 +59,7 @@ export const Home = () => {
           <Card.Body>
             <Card.Title>Andy</Card.Title>
             <Card.Text>
-            Designed and developed front-end interfaces and back-end functionality within the user authentication and messages section of the app. 
+            Designed and developed both front-end interfaces and back-end functionality within the user authentication and messages section of the app. 
             </Card.Text>
             <Button href="https://github.com/Pstyne" target="_blank" className="btn btn-lg btn-secondary fw-bold border-white btn__github">Github</Button>
           </Card.Body>
