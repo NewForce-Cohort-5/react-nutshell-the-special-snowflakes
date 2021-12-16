@@ -35,7 +35,7 @@ export const Home = () => {
           <Card.Body>
             <Card.Title>Cameron</Card.Title>
             <Card.Text>
-              Brief description of what you did in project 
+              Designed and developed both front-end interfaces and back-end functionality within the homepage and events section of the app.  
             </Card.Text>
             <Button href="https://github.com/cresuta" target="_blank" className="btn btn-lg btn-secondary fw-bold border-white btn__github">Github</Button>
           </Card.Body>
@@ -48,7 +48,7 @@ export const Home = () => {
           <Card.Body>
             <Card.Title>Heaven</Card.Title>
             <Card.Text>
-              Brief description of what you did in project 
+              Designed and developed both front-end interfaces and back-end functionality within the tasks section of the app. 
             </Card.Text>
             <Button href="https://github.com/heavenburdette1988" target="_blank" className="btn btn-lg btn-secondary fw-bold border-white btn__github">Github</Button>
           </Card.Body>
@@ -61,7 +61,7 @@ export const Home = () => {
           <Card.Body>
             <Card.Title>Andy</Card.Title>
             <Card.Text>
-              Brief description of what you did in project 
+            Designed and developed front-end interfaces and back-end functionality within the user authentication and messages section of the app. 
             </Card.Text>
             <Button href="https://github.com/Pstyne" target="_blank" className="btn btn-lg btn-secondary fw-bold border-white btn__github">Github</Button>
           </Card.Body>
