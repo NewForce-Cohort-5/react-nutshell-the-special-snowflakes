@@ -66,7 +66,7 @@ export const TaskCard = ({task}) => {
     </Card.Text>
 
        <InputGroup className="mb-3">
-    <InputGroup.Checkbox aria-label="Checkbox for following text input" onChange={handleComplete}/> {taskId ? <>Completed?</> : <>To Be Completed</>}
+    <InputGroup.Checkbox aria-label="Checkbox for following text input" onChange={handleComplete}/> {task.isCompleted === false ? <>Mark when Completed</> : <>mark as not completed</>}
   </InputGroup>  
   <Button variant="secondary" onClick={() => {
       navigate(`/tasks/edit/${task.id}`)
