@@ -22,13 +22,15 @@ export const TaskCard = ({task}) => {
  
 
     const handleComplete = () => {
-    if (taskId) {
+      console.log(handleComplete)
+    if (task.isCompleted === true) {
         patchTask(task.id, false)
              .then(getTasks) 
             } else {
               patchTask(task.id, true)
               .then(getTasks) 
             }
+            
              }
     
               
